@@ -1,11 +1,19 @@
 function checkNID() {
   let nid = (document.getElementById("nid").value).trim();
-  if (isNaN(nid) || nid.length !== 13) {
-	return false;
-  }else{
-	return true;
+  if (nid.length !== 13) {
+    alert("National ID card number must contain 13 digits.");
+    return false;
   }
-}
+
+  for (let i = 0; i < nid.length; i++) {
+    if (nid[i] < '0' || nid[i] > '9') {
+      alert("Only numbers must be entered.");
+      return false;
+    }
+  }
+
+  return true;
+  }
 
 function checkWorkDays() {
   let num = (document.getElementById("workDays").value).trim();
